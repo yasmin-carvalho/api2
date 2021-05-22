@@ -5,13 +5,16 @@
     "username": "postgres",
     "password": "123456",
     "database": "api2",
+    "synchronize": true,
+    "logging": false,
     "entities": [
-       "./src/app/models/*.ts"
+       "src/app/models/*.ts"
     ],
     "migrations": [
-       "./src/app/database/migrations/*.ts"
+       "src/database/migrations/*.ts"
     ],
     "cli": {
-        "migrationsDir": "./src/database/migrations"
+        "migrationsDir": "src/database/migrations",
+        "entitiesDir": "src/entity"
     }
  }
