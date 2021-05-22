@@ -11,7 +11,6 @@ class HistoryService {
 
     async create(city: string, country: string, temperature: number, humidity: number, weather: string){
         try {
-            console.log('Caiu')
             const history = this.connectHistory.create({
                 city, 
                 country,
@@ -19,12 +18,19 @@ class HistoryService {
                 humidity,
                 weather
             })
-            console.log(history);
-            await this.connectHistory.save(history)
-            return { status: 201, obj: history}
+            await this.connectHistory.save(history) //conecta no banco
+            return { status: 201, obj: history} 
         } catch (error) {
             throw error 
         }  
+    }
+
+    async read(){
+        try {
+            return await this.connectHistory.find()
+        } catch (error) {
+            throw error
+        }
     }
 }
 

@@ -5,7 +5,7 @@ const router = Router();
 const historyController = new HistoryController();
 
 router.post('/history', historyController.create);
-
+router.get('/history', historyController.read)
 
 
 export default router;
